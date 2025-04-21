@@ -34,9 +34,6 @@ FROM linuxserver/ffmpeg
 WORKDIR /app
 COPY --from=builder /build/bin /app/bin
 
-# 声明卷
-VOLUME ["/app/bin"]
-
 # 设置环境变量
 ENV PATH="/app/bin:${PATH}"
 
