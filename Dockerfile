@@ -7,24 +7,19 @@ RUN apk add --no-cache wget && \
     ARCH=$(uname -m) && \
     case "$ARCH" in \
         x86_64) \
-            URL="https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp_linux"; \
-            BIN_URL="https://github.com/krillinai/KrillinAI/releases/download/v1.1.3/KrillinAI_1.1.3_Linux_x86_64"; \
+            URL="https://github.com/krillinai/KrillinAI/releases/download/v1.1.3/KrillinAI_1.1.3_Linux_x86_64"; \
             ;; \
         armv7l) \
-            URL="https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp_linux_armv7l"; \
-            BIN_URL="https://github.com/krillinai/KrillinAI/releases/download/v1.1.3/KrillinAI_1.1.3_Linux_arm64"; \
+            URL="https://github.com/krillinai/KrillinAI/releases/download/v1.1.3/KrillinAI_1.1.3_Linux_arm64"; \
             ;; \
         aarch64) \
-            URL="https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp_linux_aarch64"; \
-            BIN_URL="https://github.com/krillinai/KrillinAI/releases/download/v1.1.3/KrillinAI_1.1.3_Linux_arm64"; \
+            URL="https://github.com/krillinai/KrillinAI/releases/download/v1.1.3/KrillinAI_1.1.3_Linux_arm64"; \
             ;; \
         *) \
             echo "Unsupported architecture: $ARCH" && exit 1; \
             ;; \
     esac && \
-    wget -O bin/yt-dlp "$URL" && \
-    chmod +x bin/yt-dlp && \
-    wget -O bin/KrillinAI "$BIN_URL" && \
+    wget -O bin/KrillinAI "$URL" && \
     chmod +x bin/KrillinAI
 
 # 最终镜像
