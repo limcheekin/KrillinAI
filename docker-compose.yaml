@@ -1,0 +1,12 @@
+services:
+  krillinai:
+    build:
+      context: https://github.com/limcheekin/KrillinAI.git
+    container_name: krillinai
+    restart: unless-stopped
+    ports:
+      - '8887:8888'
+    volumes:
+      - '/home/limcheekin/docker/volumes/krillinai/config/config.toml:/app/config/config.toml'
+      - '/home/limcheekin/docker/volumes/krillinai/models:/app/models'
+      - '/home/limcheekin/docker/volumes/krillinai/bin:/app/bin'
