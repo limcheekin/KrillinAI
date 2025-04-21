@@ -34,12 +34,6 @@ FROM jrottenberg/ffmpeg:6.1-alpine
 WORKDIR /app
 COPY --from=builder /build/bin /app/bin
 
-# 创建必要目录并设置权限
-RUN mkdir -p /app/models
-
-# 声明卷
-VOLUME ["/app/bin", "/app/models"]
-
 # 设置环境变量
 ENV PATH="/app/bin:${PATH}"
 
