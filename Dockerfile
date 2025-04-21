@@ -28,11 +28,14 @@ RUN apk add --no-cache wget && \
     chmod +x bin/KrillinAI
 
 # 最终镜像
-FROM jrottenberg/ffmpeg:6.1-alpine
+FROM linuxserver/ffmpeg
 
 # 设置工作目录并复制文件
 WORKDIR /app
 COPY --from=builder /build/bin /app/bin
+
+# 声明卷
+VOLUME ["/app/bin"]
 
 # 设置环境变量
 ENV PATH="/app/bin:${PATH}"
