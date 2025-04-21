@@ -32,10 +32,10 @@ FROM linuxserver/ffmpeg
 
 # 设置工作目录并复制文件
 WORKDIR /app
-COPY --from=builder /build/bin /app/bin
+COPY --from=builder /build/bin /app
 
 # 设置端口
 EXPOSE 8888/tcp
 
 # 设置入口点
-ENTRYPOINT ["./bin/KrillinAI"]
+ENTRYPOINT ["./KrillinAI"]
